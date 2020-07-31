@@ -1,0 +1,6 @@
+projectKey=simple-project
+serverUrl=http://localhost:9000
+serverVersion=8.4.0.35506
+dashboardUrl=http://localhost:9000/dashboard?id=simple-project
+ceTaskId=AXNIe5iTAes0qxLkb4Wr
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXNIe5iTAes0qxLkb4Wr
