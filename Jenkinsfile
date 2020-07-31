@@ -1,39 +1,23 @@
-// pipeline {
-//     agent {
-//         docker {
-//             image 'node:6-alpine' 
-//             args '-p 3000:3000' 
-//         }
-//     }
-//     stages {
-//         stage('Build') { 
-//             steps {
-//                 sh 'npm install' 
-//             }
-//         }
-//     }
-// }
 pipeline {
-  agent any
-  tools {nodejs "latest"}
-  stages {
-    stage('preflight') {
-      steps {
-        echo sh(returnStdout: true, script: 'env')
-        sh 'node -v'
-      }
+    agent {
+        docker {
+            image 'node:6-alpine'
+            args '-p 3000:3000'
+        }
     }
-    stage('build') {
-      steps {
-        sh 'npm --version'
-        sh 'git log --reverse -1'
-        sh 'npm install'
-      }
+     environment {
+            CI = 'true'
+        }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        // stage('Test') {
+        //     steps {
+        //         sh 'npm test'
+        //     }
+        // }
     }
-    stage('test') {
-      steps {
-        sh 'npm test'
-      }
-    }
-  }
 }
