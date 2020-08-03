@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install --save sequelize-cli',
+                sh 'npm install --save sequelize-cli'
                 sh 'npm install'
             }
         }
